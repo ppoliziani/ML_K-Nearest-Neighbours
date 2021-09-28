@@ -29,8 +29,8 @@ def plot(graph_coords, coordinates, index, test_sample):
     plt.scatter(nearest_x, nearest_y, color="green")
 
     # adding bounds to the axis
-    plt.xticks(np.arange(-5, 10, 1.0))
-    plt.yticks(np.arange(-5, 10, 1.0))
+    plt.xticks(np.arange(-5, 11, 1.0))
+    plt.yticks(np.arange(-5, 11, 1.0))
 
     # drawing line between the nearest neighbour and the test sample
     x_values = [nearest_x, test_x]
