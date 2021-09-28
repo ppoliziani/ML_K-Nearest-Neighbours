@@ -16,7 +16,7 @@ Examples:
 
 Current Limitaion:
 
-So far only implemented KNN where k = 1, just Nearest Neighbour, so when a the test sample and the nearest neighbour lie across the axis it will produce the incorrect prediciton. Adding more comparisons and taking a vote or the average should mitigate this.
+So far only implemented KNN where k = 1, just Nearest Neighbour, so when a the test sample and the nearest neighbour lie across the axis it will produce the incorrect prediciton. Adding more comparisons and taking a vote or the average should solve this.
 
 ![knn4](https://user-images.githubusercontent.com/49439911/135139375-cc03acc4-c6ae-4b20-a1fa-22ee84abd35c.png)
 
