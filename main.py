@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 import math
 
 
-def plot(graph_coords, coordinates, index, test_sample):
+def plot(graph_coords, coordinates, index, test_sample, prediciton):
     # plotting training coordinates in blue
     # test coordinate in red
     # nearest neighbour coordinate in green
@@ -16,6 +16,7 @@ def plot(graph_coords, coordinates, index, test_sample):
     test_x = test_sample[0]
     test_y = test_sample[1]
     plt.scatter(test_x, test_y, color="red")
+    plt.annotate(str(prediciton), (test_x, test_y), fontsize="30")
 
     # adds and labels the axis
     ax.spines['left'].set_position('zero')
@@ -74,7 +75,7 @@ def nearest_neighbours(coordinates, test_sample):
     print("\n= NN PREDICTION =\n")
     print(prediction)
 
-    plot(graph_coords, coordinates, index, test_sample)
+    plot(graph_coords, coordinates, index, test_sample, prediction)
 
 
 # generate random coordinate training pairs and single coordinate test pair
