@@ -2,6 +2,7 @@ import random
 import numpy as np
 from matplotlib import pyplot as plt
 import math
+from scipy import stats
 
 
 def plot(graph_coords, coordinates, index, test_sample, prediciton):
@@ -50,8 +51,10 @@ def k_nearest_neighbours(coordinates, test_sample):
 
     k = int(input("Enter a value for k: "))
 
-    # calculate distance from test_data to all coordinates
-    # print("\n= Using NN algorithm =\n")
+    print("coords")
+    print(coordinates)
+
+    # calculate distance from test_sample to all coordinates
 
     distances = np.zeros([10])
     # print(distances)
@@ -76,7 +79,37 @@ def k_nearest_neighbours(coordinates, test_sample):
     print("Last k:")
 
     # returns k smallest distances, k nearest neighbours distances, need to get the index and the label
-    print(sorted_distances[:k])
+    smallest_k = sorted_distances[:k]
+    print(smallest_k)
+
+    indexes = np.zeros([k])
+
+    # print(indexes)
+
+    x = 0
+    for val in smallest_k:
+        index = np.where(distances == val)
+        indexes[x] = index[0][0]
+        x += 1
+
+    print("indexes")
+    print(indexes)
+
+    # if 2 points are the same distance away it will not recognise them as different points and just select one
+    i = 0
+    nearest_labels = np.zeros(k)
+    for index in indexes:
+        if i == k:
+            break
+        print(coordinates[int(index)][2])
+        nearest_labels[i] = coordinates[int(index)][2]
+        i += 1
+
+    print(nearest_labels)
+
+    prediction = int(stats.mode(nearest_labels)[0][0])
+    print("PREDICTION: ")
+    print(prediction)
 
 
 # single nearest neighbour prediction method
