@@ -45,16 +45,16 @@ def knn_plot(graph_coords, coordinates, indexes, test_sample, prediction, k, nn_
 
 
 # k nearest neighbour prediction method
-def k_nearest_neighbours(coordinates, test_sample):
+def k_nearest_neighbours(coordinates, test_sample, sample_size):
 
     k = int(input("Enter a value for k: "))
 
-    distances = np.zeros([100])
+    distances = np.zeros([sample_size])
 
     graph_coords = np.delete(coordinates, -1, 1)
 
     # calculate distance from test_sample to all coordinates
-    for x in range(0, 100):
+    for x in range(0, sample_size):
         distance = math.sqrt((graph_coords[x][0] - test_sample[0])**2 + (graph_coords[x][1] - test_sample[1])**2)
         distances[x] = distance
 
@@ -96,12 +96,15 @@ def generate_samples():
     # initialises a numpy array with 10 coordinate paris full of 0s
     # last column is used to store the label saying whether it is positive (1) or negative (-1) (below or equal to 0)
     # e.g. coordinates [6, -2] in the array would be [6, -2, -1], where the -1 indicates it is negative
-    coordinates = np.zeros([100, 3])
+    sample_size = 100
+    coordinates = np.zeros([sample_size, 3])
 
     # creates 10 random coordinates and fills in the numpy array, labelling them if they are negative or positive
-    for x in range(100):
-        x_val = random.randint(-15, 50)
-        y_val = random.randint(-15, 50)
+    lower_bound = -15
+    upper_bound = 50
+    for x in range(sample_size):
+        x_val = random.randint(lower_bound, upper_bound)
+        y_val = random.randint(lower_bound, upper_bound)
 
         if x_val <= 0 or y_val <= 0:
             label = -1
@@ -113,11 +116,11 @@ def generate_samples():
 
     # print(coordinates)
 
-    test_sample = [random.randint(-15, 50), random.randint(-15, 50), 0]
+    test_sample = [random.randint(lower_bound, upper_bound), random.randint(lower_bound, upper_bound), 0]
     # print("Test: " + str(test_sample))
 
     # nearest_neighbours(coordinates, test_sample)
-    k_nearest_neighbours(coordinates, test_sample)
+    k_nearest_neighbours(coordinates, test_sample, sample_size)
 
 
 def main():
