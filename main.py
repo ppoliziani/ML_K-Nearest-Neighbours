@@ -40,9 +40,43 @@ def plot(graph_coords, coordinates, index, test_sample, prediciton):
 
     plt.show()
 
-# k nearest neighbour prediction method
-def k_nearest_neighbours():
+
+def insertion_sort():
     pass
+
+
+# k nearest neighbour prediction method
+def k_nearest_neighbours(coordinates, test_sample):
+
+    k = int(input("Enter a value for k: "))
+
+    # calculate distance from test_data to all coordinates
+    # print("\n= Using NN algorithm =\n")
+
+    distances = np.zeros([10])
+    # print(distances)
+
+    graph_coords = np.delete(coordinates, -1, 1)
+
+    for x in range(0, 10):
+        distance = math.sqrt((graph_coords[x][0] - test_sample[0])**2 + (graph_coords[x][1] - test_sample[1])**2)
+        distances[x] = distance
+
+    for x in range(k):
+        print(x)
+
+
+    print("Unsorted")
+    print(distances)
+
+    print("Sorted")
+    # print(np.sort(distances))
+    sorted_distances = np.sort(distances)
+    print(sorted_distances)
+    print("Last k:")
+
+    # returns k smallest distances, k nearest neighbours distances, need to get the index and the label
+    print(sorted_distances[:k])
 
 
 # single nearest neighbour prediction method
@@ -105,6 +139,7 @@ def generate_samples():
     # print("Test: " + str(test_sample))
 
     nearest_neighbours(coordinates, test_sample)
+    k_nearest_neighbours(coordinates, test_sample)
 
 
 def main():
