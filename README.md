@@ -1,5 +1,5 @@
 # ML_K-Nearest-Neighbours
-Implementing the Nearest Neighbours and K Nearest Neighbours algorithm to predict the sign of a pair of coordinates. 
+Implementing the K Nearest Neighbours algorithm to predict the sign of a pair of coordinates. 
 
 Using matplotlib to graph the training set of coordinates in blue, test coordinate in red and the nearest neighbour in green.
 
@@ -12,7 +12,6 @@ Final implementation examples (k = 3):
 ![knn5](https://user-images.githubusercontent.com/49439911/135255465-d457a668-e70c-49c5-8a9b-c14a4d5c7b00.png)
 ![knn6](https://user-images.githubusercontent.com/49439911/135255471-e11608cd-8bc7-4624-863b-427266a588c8.png)
 ![knn7](https://user-images.githubusercontent.com/49439911/135255479-d6b338d9-9106-4459-bf5f-db83bf909d46.png)
-
 
 Examples (k = 1):
 
