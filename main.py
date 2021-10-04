@@ -44,6 +44,11 @@ def knn_plot(graph_coords, coordinates, indexes, test_sample, prediction, k, nn_
     plt.show()
 
 
+# using p-values ranks the "strangeness" of the sample to the dataset to inform its prediction
+def conformal_prediction(coordinates, test_sample, sample_size):
+    pass
+
+
 # k nearest neighbour prediction method
 def k_nearest_neighbours(coordinates, test_sample, sample_size):
 
@@ -121,6 +126,7 @@ def generate_samples():
 
     # nearest_neighbours(coordinates, test_sample)
     k_nearest_neighbours(coordinates, test_sample, sample_size)
+    conformal_prediction(coordinates, test_sample, sample_size)
 
 
 def main():
