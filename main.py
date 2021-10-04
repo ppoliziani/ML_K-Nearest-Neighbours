@@ -45,6 +45,10 @@ def knn_plot(graph_coords, coordinates, indexes, test_sample, prediction, k, nn_
 
 
 # using p-values ranks the "strangeness" of the sample to the dataset to inform its prediction
+# 1.) using nearest neighbours calculate distance between same and difference class and divide them = conformity scores
+# 2.) then rank the conformity scores using "1334" rank, if 2 values of same rank assign the higher rank to both
+# (Modified Competition Ranking - https://en.wikipedia.org/wiki/Ranking) take the higher rank as pessimistic
+
 def conformal_prediction(coordinates, test_sample, sample_size):
     pass
 
